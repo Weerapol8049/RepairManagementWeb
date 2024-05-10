@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Repair management</title>
+
+        <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+        <link rel="stylesheet" href="./css/fonts.css">
+        <link rel="stylesheet" href="./css/style.css">
+        <link rel="stylesheet" href="./css/adminlte.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+            integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <!-- <link rel="stylesheet" href="../css/style.css"> -->
+
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.24/dist/sweetalert2.all.min.js"></script>
+        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+    </head>
+
+    <body>
+        <div class="container mt-5 mb-3">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card p-3 mb-2">
+                        <div class="d-flex justify-content-between">
+                            <div class="d-flex flex-row align-items-center">
+                                <div class="icon" style="margin-right: 10px;"> <ion-icon
+                                        name="document-text-outline"></ion-icon> </div>
+                                <div class="ms-2 c-details">
+                                    <h6 class="mb-0" id="hRepairId"></h6> <span id="spanDateCenter"></span>
+                                </div>
+                            </div>
+                            <div class="badge"> <span id="spanDivision">โรงงาน</span> </div>
+                        </div>
+                        <div class="mt-5">
+                            <h4 class="heading">รายการแจ้งซ่อม</h4>
+
+                            <div class="container">
+                                <label id="lblRecId" hidden></label>
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                        <label class="control-label font-weight-bold">ลูกค้า</label>
+                                    </div>
+                                    <div class="col">
+                                        <label id="lblCustomer"></label>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                        <label class="control-label font-weight-bold">BO NO</label>
+                                    </div>
+                                    <div class="col">
+                                        <label id="lblBoNo"></label>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                        <label class="control-label font-weight-bold">เลข SO</label>
+                                    </div>
+                                    <div class="col">
+                                        <label id="lblSO"></label>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                        <label class="control-label font-weight-bold">แผนก</label>
+                                    </div>
+                                    <div class="col">
+                                        <label id="lblDepartment"></label>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                        <label class="control-label font-weight-bold">หน่วยงาน</label>
+                                    </div>
+                                    <div class="col">
+                                        <label id="lblSaction"></label>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                        <label class="control-label font-weight-bold">สาขา</label>
+                                    </div>
+                                    <div class="col">
+                                        <label id="lblBranch"></label>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                        <label class="control-label font-weight-bold">ปัญหา</label>
+                                    </div>
+                                    <div class="col">
+                                        <label id="lblIssue"></label>
+                                    </div>
+                                </div>
+
+                                <hr>
+                                <div class="row">
+                                    <div class="col">
+                                        <label id="lblText"></label>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row" id="rowSolution" hidden>
+                                    <div class="col-sm-2">
+                                        <label class="control-label font-weight-bold">วิธีแก้ไข</label>
+                                    </div>
+                                    <div class="col">
+                                        <input type="text" class="form-control" id="txtSolution">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mt-5">
+                                <button type="button" id="btnApproved" class="btn btn-outline-success">ยอมรับ</button>
+                                <button type="button" id="btnReject" class="btn btn-outline-danger">ปฏิเสธ</button>
+                                <button type="button" id="btnClose" class="btn btn-outline-secondary"
+                                    hidden>Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </body>
+
+    <script src="./js/Main.js" type="module"></script>
+    <script src="./js/approve.js" type="module"></script>
+
+    <script src="./plugins/jquery/jquery.min.js"></script>
+    <script src="./plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="./plugins/moment/moment-with-locales.min.js"></script>
+    <!-- <script>
+        $(function () {
+            var btnApprove = document.getElementById("btnApproved");
+            btnApprove.onclick = clicked();
+        })
+      </script> -->
+
+</html>
