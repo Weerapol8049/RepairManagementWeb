@@ -1,12 +1,13 @@
 import { API_REPAIR, API_UPDATE } from "./flagment/api.js";
 
 function init() {
-  const queryString = window.location.search;
-  //console.log(queryString);
-  const urlParams = new URLSearchParams(queryString);
-  const id = urlParams.get("id");
-  //console.log(id);
+  // const queryString = window.location.search;
 
+  // const urlParams = new URLSearchParams(queryString);
+  // const id = urlParams.get("id");
+
+  const id = localStorage.getItem("RecId");
+  //console.log(id);
   load(id);
 
   var btnApprove = document.getElementById("btnApproved");
@@ -119,8 +120,7 @@ function approve(recid) {
       );
       xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-          //console.log(this.responseText);
-          var trHTML = "";
+          
           const objects = JSON.parse(this.responseText);
           if (objects.Status == "OK") {
             Swal.fire("ยอมรับสำเร็จ", "บันทึกข้อมูลแก้ไข", "success").then(
