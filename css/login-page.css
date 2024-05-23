@@ -79,3 +79,29 @@ body {
   cursor: pointer;
   outline: none;
 }
+
+#username-field, #password-field {
+  /* background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-username.svg"); */
+  padding: .6em 1em;
+  border: 1px solid rgba(#FFF, .6);
+  border-radius: 50em;
+  font-size: large;
+  /* border: 1px solid #d2d8d8;  */
+}
+
+.input-icons i {
+  position: absolute;
+}
+
+.icon {
+  padding: 10px;
+  min-width: 40px;
+}
+
+.input-field {
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+  border: 1px solid rgba(#FFF, .6);
+  border-radius: 50em;
+}

@@ -11,6 +11,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
             integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
             crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet" />
 
         <title>Login</title>
     </head>
@@ -23,9 +24,21 @@
                 <p id="login-error-msg">Invalid username <span id="error-msg-second-line"> and/or password </span></p>
             </div>
 
+            <!-- <div class="relative">
+                <input type="text" class="pl-10 pr-4 py-2 border rounded-lg" placeholder="Enter your username" />
+                <div class="absolute inset-y-0 left-0 pl-3  
+                            flex items-center  
+                            pointer-events-none">
+                    <i class="fas fa-user text-gray-400"></i>
+                </div>
+            </div> -->
+
             <form id="login-form">
+
                 <input type="text" name="username" id="username-field" class="form-control login-form-field"
                     placeholder="Username">
+
+
                 <input type="password" name="password" id="password-field" class=" form-control login-form-field"
                     placeholder="Password">
                 <input type="submit" value="Login" id="login-form-submit">
